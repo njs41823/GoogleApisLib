@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Newtonsoft.Json;
 
-namespace GoogleApisLib.Models.MapsDistanceMatrix
+namespace GoogleApisLib.MapsDistanceMatrixApi.Models
 {
     public class ApiResponse
     {

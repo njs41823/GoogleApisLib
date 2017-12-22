@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GoogleApisLib.Models.MapsDistanceMatrix
+namespace GoogleApisLib.MapsDistanceMatrixApi.Models
 {
     public enum Units
     {

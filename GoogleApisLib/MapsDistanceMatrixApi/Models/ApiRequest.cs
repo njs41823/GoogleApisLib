@@ -6,14 +6,15 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoogleApisLib.Models.MapsDistanceMatrix
+namespace GoogleApisLib.MapsDistanceMatrixApi.Models
 {
     public class ApiRequest
     {
-        public ApiRequest(string apiKey, string apiJsonEndpoint)
+        private const string JsonApiRootEndpoint = "https://maps.googleapis.com/maps/api/distancematrix/json?";
+
+        public ApiRequest(string apiKey)
         {
             Key = apiKey;
-            JsonEndpoint = apiJsonEndpoint;
         }
 
         public const int MaxElementsPerRequest = 100;
@@ -39,9 +40,7 @@ namespace GoogleApisLib.Models.MapsDistanceMatrix
         public TransitMode TransitMode { get; set; } = TransitMode.NotSpecified;
 
         public TransitRoutingPreference TransitRoutingPreference { get; set; } = TransitRoutingPreference.NotSpecified;
-
-        public string JsonEndpoint { get; }
-
+        
         public string Key { get; }
 
         public string RequestString
@@ -64,7 +63,7 @@ namespace GoogleApisLib.Models.MapsDistanceMatrix
                 string keyString = "&key=" + Key;
 
                 return
-                    JsonEndpoint + originsString + destinationsString +
+                    JsonApiRootEndpoint + originsString + destinationsString +
                     modeString + languageString + avoidString + unitsString + arrivalTimeString + departureTimeString +
                     trafficModelString + transitModeString + transitRoutingPreferenceString + keyString;
             }
